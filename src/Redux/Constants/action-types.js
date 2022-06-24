@@ -1,0 +1,9 @@
+
+export const GET_ORDERS = "GET_ORDERS";
+export const UPDATE_ORDERS = "UPDATE_ORDERS";
+export const ACCEPTED_ORDERS = "ACCEPTED_ORDERS";
+export const PENDING_ORDERS = "PENDING_ORDERS";
+export const UNASSIGNED_ORDERS = "UNASSIGNED_ORDERS";
+
+export const GET_USERS = "GET_USERS";
+

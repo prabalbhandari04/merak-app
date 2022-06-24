@@ -1,20 +1,26 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import Task from './src/screens/tasks'
+import { Provider } from "react-redux";
+import store from './src/Redux/store';
+
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Ride share app</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+      <View style={styles.container}>
+        <Task />
+      </View>
+    </Provider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#000000',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-end',
   },
 });
