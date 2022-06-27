@@ -1,11 +1,10 @@
 {
   "expo": {
-    "name": "mapapp",
-    "slug": "mapapp",
+    "name": "Merak",
+    "slug": "Merak",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -18,13 +17,26 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier":"com.Merak",
+      "config":{
+        "googleMapsApiKey" :"AIzaSyBQivdVNxU7quHhW_ARw2VuXKmHVwXhNMk"
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+
+    "package":"com.uberclone",
+    "config" :{
+      "googleMaps":{
+        "apiKey":"KEY"
+      },
+      "permissions":["ACCESS_COARSE_LOCATION","ACCESS_FINE_LOCATION","FOREGROUND_SERVICE"]
+    }
+    
     },
     "web": {
       "favicon": "./assets/favicon.png"

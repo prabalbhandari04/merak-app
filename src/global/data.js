@@ -2,7 +2,7 @@ export const filterData = [ {name:"Ride",image: require('../../assets/ride.png')
                             {name:"Food",image:require("../../assets/food.png"),id:"1"},
                             {name:"Package",image:require("../../assets/package.png"),id:"2"},
                             {name:"Reserve",image:require("../../assets/reserve.png"),id:"3"}
-
+                          
                            ];
 
 

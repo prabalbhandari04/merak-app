@@ -1,9 +1,8 @@
 import { StatusBar } from 'expo-status-bar'
 import React,{useState,useRef,useEffect} from 'react'
-import { StyleSheet, Text, View,Dimensions ,ScrollView,Image,FlatList} from 'react-native'
+import { StyleSheet, Text, View,Dimensions ,ScrollView,Image,FlatList,TouchableOpacity} from 'react-native'
 import { Icon} from 'react-native-elements'
 import MapView, { PROVIDER_GOOGLE,} from 'react-native-maps'; 
-// import MapView, { PROVIDER_GOOGLE,} from 'react-native-web-maps'; 
 import * as Location from 'expo-location';
 
 const SCREEN_WIDTH = Dimensions.get('window').width
@@ -11,7 +10,7 @@ import { colors,parameters } from '../global/styles'
 import { filterData,carsAround } from '../global/data'
 import { mapStyle} from "../global/mapStyle"
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
 
 
 const [latlng,setLatLng] = useState({})
@@ -51,7 +50,7 @@ const _map = useRef(1);
 useEffect(()=>{
     checkPermission();
     getLocation()
-    console.log(latlng)
+   // console.log(latlng)
 ,[]})
 
 
@@ -72,9 +71,11 @@ useEffect(()=>{
                     <View style ={styles.view1}>
                         <View  style ={styles.view8}>
                             <Text style ={styles.text2}>Read a book.Take a nap. Stare out the window</Text>
-                            <View style ={styles.button1}>
-                                <Text style = {styles.button1Text}>Ride with Uber</Text>
-                            </View>
+                            <TouchableOpacity onPress ={()=>{navigation.navigate("RequestScreen",{state:0})}}>
+                                <View style ={styles.button1}>
+                                    <Text style = {styles.button1Text}>Ride with Uber</Text>
+                                </View>
+                            </TouchableOpacity>
                         </View>
                         <View>
                             <Image 
@@ -177,7 +178,7 @@ useEffect(()=>{
                             showsUserLocation ={true}
                             followsUserLocation = {true}
                             initialRegion = {{...carsAround[0],latitudeDelta:0.008,longitudeDelta:0.008}}
-
+                           
                         >
                             {carsAround.map((item,index)=>
                             <MapView.Marker coordinate = {item} key= {index.toString()}>
@@ -187,7 +188,7 @@ useEffect(()=>{
                                     resizeMode = "cover"
                                 />
                             </MapView.Marker>
-
+                            
                             )
 
                             }
@@ -213,44 +214,44 @@ const styles = StyleSheet.create({
       backgroundColor:colors.blue,
       height:parameters.headerHeight,
       alignItems:"flex-start"
-
+     
     },
-
+    
     image1:{
-
+     
       height:100,
       width:100,
-
+    
     },
-
+    
     image2:{height:60,width:60,
             borderRadius:30,
           },
-
+    
     home:{
      backgroundColor:colors.blue,
      paddingLeft:20,
-
+     
     },
-
+    
     text1:{
      color:colors.white,
      fontSize:21,
      paddingBottom:20,
      paddingTop:20
     },
-
+    
     text2:{
      color:colors.white,
      fontSize:16
     },
-
+    
     view1:{
      flexDirection:"row",
      flex:1,
      paddingTop:30
     },
-
+    
     button1:{
       height:40,
       width:150,
@@ -260,24 +261,24 @@ const styles = StyleSheet.create({
       justifyContent:"center",
       marginTop:20
     },
-
+    
     button1Text:{
      color:colors.white,
      fontSize:17,
      marginTop:-2
-
+    
     },
     card:{
      alignItems:"center",
      margin:SCREEN_WIDTH/22
-
+    
     },
-
+    
     view2:{marginBottom:5,
           borderRadius:15,
           backgroundColor:colors.grey6
         },
-
+    
         title:{
           color:colors.black,
           fontSize:16
@@ -289,13 +290,13 @@ const styles = StyleSheet.create({
              alignItems:"center",
              justifyContent:"space-between",
             marginHorizontal:15
-
+            
              },
     text3:{marginLeft:15,
             fontSize:20,
             color:colors.black
       },
-
+    
     view4:{ flexDirection:"row",
             alignItems:"center",
             marginRight:15,
@@ -304,7 +305,7 @@ const styles = StyleSheet.create({
             paddingVertical:2,
             borderRadius:20
             },
-
+    
     view5:{ flexDirection:"row",
     alignItems:"center",
     backgroundColor:"white",
@@ -315,10 +316,10 @@ const styles = StyleSheet.create({
     borderBottomWidth:1,
     flex:1
     },
-
+    
     view6:{
-
-
+    
+    
     alignItems:"center",
     flex:5,
     flexDirection:"row"
@@ -331,22 +332,22 @@ const styles = StyleSheet.create({
     alignItems:"center",
     justifyContent:"center",
     marginRight:20
-
+    
     },
-
+    
     map:{
-
+       
     height: 150,
      marginVertical: 0,
      width:SCREEN_WIDTH*0.92
     },
-
+    
     text4:{ fontSize:20,
           color:colors.black,
           marginLeft:20,
           marginBottom:20
         },
-
+    
     icon1:  {marginLeft:10,
            marginTop:5
           },
@@ -357,9 +358,9 @@ const styles = StyleSheet.create({
     carsAround: {
     width: 28,
     height: 14,
-
+    
     }, 
-
+    
     location: {
       width: 16,
       height: 16,
@@ -367,9 +368,9 @@ const styles = StyleSheet.create({
       backgroundColor:colors.blue,
       alignItems:"center",
       justifyContent:"center"
-
+      
       }, 
-
+      
     view9:{width:4,
     height:4,
     borderRadius:2,

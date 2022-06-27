@@ -33,7 +33,7 @@ export const colors = {
     darkBlue:"#2d328a",
     pagebackground:"white"
 
-
+    
 
 }
 
@@ -68,4 +68,4 @@ export const title ={
     color:"#ff8c52",
     fontSize :20,
     fontWeight:"bold"
-} 
+}
