@@ -9,9 +9,9 @@ import store from './src/Redux/store';
 export default function App() {
   return (
     <Provider store={store}>
-      <View style={styles.container}>
-        <Task />
-      </View>
+        <View style={styles.container}>
+          <Task />
+        </View>
     </Provider>
   );
 }

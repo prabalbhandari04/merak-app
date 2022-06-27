@@ -243,11 +243,5 @@ export const styles = StyleSheet.create({
     fontSize:12,
     marginBottom: 5
    },
-   button5:{
-    marginVertical:5
-   },
-   button6:{
-    backgroundColor: colors.black
-   }
 
 })

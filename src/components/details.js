@@ -1,5 +1,5 @@
 import { Button, StyleSheet, Text, View,Dimensions ,ScrollView} from 'react-native'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import {styles} from '../global/mystyle'
 
 import {useDispatch, useSelector} from 'react-redux';
@@ -15,6 +15,7 @@ const Details = ( {order} ) => {
     }
 
     const declineassigned = ()=>{
+        console.log("yes")
         dispatch(declineAssignedOrder(order.invoice))
     }
 
@@ -56,8 +57,9 @@ const Details = ( {order} ) => {
                 :
                 orders.status === 'PENDING' ?
                 <View>
-                    <Button title='Accept' onPress={acceptassigned} style={styles.button5}></Button>
-                    <Button title='Decline' opPress={declineassigned} style={styles.button6}></Button>
+                    <Button title='Accept' onPress={acceptassigned} ></Button>
+                    <View style={{ height: 5 }}></View>
+                    <Button title='Decline' onPress={declineassigned} ></Button>
                 </View>
                 :
                 <Button title='Decline' onPress={declineaccepted}></Button>

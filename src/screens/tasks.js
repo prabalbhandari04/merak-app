@@ -18,21 +18,11 @@ const HomeScreen = () => {
 
     const {accepted, pending, unassigned} = useSelector(state => state.data); //Redux State
 
-    const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY1MDM3MTQzLCJpYXQiOjE2NTMwMzcxNDMsImp0aSI6ImJkNjdlMzNmNjE3YzQ2NDI4NWUyNDU2YTkxMDI3NzQ0IiwidXNlcl9pZCI6MX0.FCHJiiWiW7s8kTW-h1wKen43dx-wyPN2YS7MUb23D_o"
-
-    let headers = {
-            "Content-type": "application/json; charset=UTF-8",
-            "Authorization": 'Bearer ' + token
-    };
-    const [user, setUser] = useState()
-    const [order, setOrder] = useState([])
-    const [my, setMy] = useState([])
-    const [unassign, setUnassign] = useState([])
-
     useEffect(()=>{
         dispatch(loadUnassigned());
         dispatch(loadAccepted());
         dispatch(loadPending());
+
     }, [dispatch])
     
 
@@ -46,27 +36,27 @@ const HomeScreen = () => {
                     MY TASKS
                 </Text>
 
-                {accepted && accepted.map((orders, index)=>{
+                {accepted && accepted.map((accept, index)=>{
                     return (
-                        <Cards order={orders} key={index}/>
+                        <Cards order={accept} key={index}/>
                     )})}
 
                 <Text style={styles.text5}>
                     Assigned TASKS
                 </Text>
 
-                {pending && pending.map((orders, index)=>{
+                {pending && pending.map((pend, index)=>{
                     return (
-                        <Cards order={orders} key={index}/>
+                        <Cards order={pend} key={index}/>
                     )})}
 
                 <Text style={styles.text5}>
                     UNASSIGNED TASKS
                 </Text>
 
-                {unassigned && unassigned.map((orders, index)=>{
+                {unassigned && unassigned.map((unassig, index)=>{
                     return (
-                        <Cards order={orders} key={index}/>
+                        <Cards order={unassig} key={index}/>
                     )})}
                 
                 

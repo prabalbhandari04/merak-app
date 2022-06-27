@@ -1,11 +1,9 @@
 import { Button, StyleSheet, Text, View,Dimensions ,ScrollView,Image,FlatList, TouchableOpacity, Modal, Pressable, Alert} from 'react-native'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import Details from '../components/details';
 
 import {styles} from '../global/mystyle'
 
-import { colors,parameters } from '../global/styles'
-const SCREEN_WIDTH = Dimensions.get('window').width
 
 
 
@@ -21,7 +19,8 @@ const Cards = ( {order} ) => {
             transparent={true}
             visible={modalVisible}
             onRequestClose={() => {
-            setModalVisible(!modalVisible);
+                setModalVisible(!modalVisible)
+            // setModalVisible(!modalVisible);
             }}
         >
             <View style={styles.centeredView}>

@@ -92,7 +92,6 @@ export const putOrders = (uuid, product) => {
 export const acceptPendingOrder = (uuid) => {
     return function (dispatch) {
         axios.get(`https://merak-test.onrender.com/inventory/order/accept_pending_order/${uuid}/`, {headers: headers}).then((res) => {
-            dispatch(getAccepted(res.data));
             dispatch(loadAccepted())
             dispatch(loadUnassigned())
             dispatch(loadPending())
@@ -103,7 +102,6 @@ export const acceptPendingOrder = (uuid) => {
 export const declineAssignedOrder = (uuid) => {
     return function (dispatch) {
         axios.get(`https://merak-test.onrender.com/inventory/order/decline_assigned_order/${uuid}/`, {headers: headers}).then((res) => {
-            dispatch(getAccepted(res.data));
             dispatch(loadAccepted())
             dispatch(loadUnassigned())
             dispatch(loadPending())
@@ -114,7 +112,6 @@ export const declineAssignedOrder = (uuid) => {
 export const declineAcceptedOrder = (uuid) => {
     return function (dispatch) {
         axios.get(`https://merak-test.onrender.com/inventory/order/decline_accepted_order/${uuid}/`, {headers: headers}).then((res) => {
-            dispatch(getAccepted(res.data));
             dispatch(loadAccepted())
             dispatch(loadUnassigned())
             dispatch(loadPending())
