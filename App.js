@@ -1,9 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import Task from './src/screens/tasks'
+import Login from './src/screens/login'
 import { Provider } from "react-redux";
 import store from './src/Redux/store';
-
+import MyStack from './src/navigations/WhateverNavigation'
 
 
 export default function App() {

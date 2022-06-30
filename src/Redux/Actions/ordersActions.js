@@ -1,18 +1,32 @@
 import * as types from "../Constants/action-types";
 import axios from "axios";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useState } from "react";
+
+// const [toke, steToken] = useState("")
+
+var token = ""
+var headers = ""
+
+const getData = async () => {
+    try {
+      const value = await AsyncStorage.getItem('access_token')
+      if(value !== null) {
+        token = value
+      }
+    } catch(e) {
+      console.log(e)
+    }
+  }
+  getData().then(()=>{
+      headers = {
+              "Content-type": "application/json; charset=UTF-8",
+              "Authorization": 'Bearer ' + token
+      };
+  })
 
 //Authentication Header-------------------------------
-const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY1MDM3MTQzLCJpYXQiOjE2NTMwMzcxNDMsImp0aSI6ImJkNjdlMzNmNjE3YzQ2NDI4NWUyNDU2YTkxMDI3NzQ0IiwidXNlcl9pZCI6MX0.FCHJiiWiW7s8kTW-h1wKen43dx-wyPN2YS7MUb23D_o"
-
-let headers = {
-        "Content-type": "application/json; charset=UTF-8",
-        "Authorization": 'Bearer ' + token
-};
-
-
-//----------------------------------------------------
-
-
+const tok = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY4NTgzODAxLCJpYXQiOjE2NTY1ODM4MDEsImp0aSI6Ijg3NjAwNDAxNjE2MjQzNDI5MDNjOWIxMTVkMjQ4MTJhIiwidXNlcl9pZCI6MX0.9EPq_L4FChcM4C9BtbDQCHCZa6fDmCyyJnE4Rj5LP6c"
 
 
 
@@ -95,7 +109,7 @@ export const acceptPendingOrder = (uuid) => {
             dispatch(loadAccepted())
             dispatch(loadUnassigned())
             dispatch(loadPending())
-        }).catch((err) => console.log(err+'1'));
+        }).catch((err) => console.log(err));
     }
 }
 
@@ -105,7 +119,7 @@ export const declineAssignedOrder = (uuid) => {
             dispatch(loadAccepted())
             dispatch(loadUnassigned())
             dispatch(loadPending())
-        }).catch((err) => console.log(err+'2'));
+        }).catch((err) => console.log(err));
     }
 }
 
@@ -115,7 +129,7 @@ export const declineAcceptedOrder = (uuid) => {
             dispatch(loadAccepted())
             dispatch(loadUnassigned())
             dispatch(loadPending())
-        }).catch((err) => console.log(err+'3'));
+        }).catch((err) => console.log(err));
     }
 }
 

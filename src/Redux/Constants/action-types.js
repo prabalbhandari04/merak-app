@@ -5,5 +5,6 @@ export const ACCEPTED_ORDERS = "ACCEPTED_ORDERS";
 export const PENDING_ORDERS = "PENDING_ORDERS";
 export const UNASSIGNED_ORDERS = "UNASSIGNED_ORDERS";
 
+export const LOGIN_USERS = "LOGIN_USERS";
 export const GET_USERS = "GET_USERS";
 

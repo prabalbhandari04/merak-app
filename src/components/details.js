@@ -1,8 +1,8 @@
-import { Button, StyleSheet, Text, View,Dimensions ,ScrollView} from 'react-native'
-import { useState, useContext } from 'react'
-import {styles} from '../global/mystyle'
+import { Button, Text, View } from 'react-native'
+import { useState } from 'react'
+import { styles } from '../global/mystyle'
 
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {acceptPendingOrder, declineAssignedOrder, declineAcceptedOrder} from '../../src/Redux/Actions/ordersActions';
 
 const Details = ( {order} ) => {
@@ -29,11 +29,11 @@ const Details = ( {order} ) => {
 
     return(
         <View>
-            <Text style ={styles.text4}>Invoice:</Text>
-            <Text style ={styles.text6}>{orders.invoice}</Text>
+            <Text style ={styles.task_key}>Invoice:</Text>
+            <Text style ={styles.modal_text}>{orders.invoice}</Text>
             
-            <Text style ={styles.text4}>Assigned to</Text>
-            <Text style ={styles.text6}>
+            <Text style ={styles.task_key}>Assigned to</Text>
+            <Text style ={styles.modal_text}>
             {
                 orders.assigned_to === null ?
                 "Null"
@@ -42,14 +42,14 @@ const Details = ( {order} ) => {
             }
             </Text>
             
-            <Text style ={styles.text4}>Status</Text>
-            <Text style ={styles.text6}>{orders.status}</Text>
+            <Text style ={styles.task_key}>Status</Text>
+            <Text style ={styles.modal_text}>{orders.status}</Text>
             
-            <Text style ={styles.text4}>Ordered By: </Text>
-            <Text style ={styles.text6}>{orders.ordered_by.full_name}</Text>
+            <Text style ={styles.task_key}>Ordered By: </Text>
+            <Text style ={styles.modal_text}>{orders.ordered_by.full_name}</Text>
             
-            <Text style ={styles.text4}>Address</Text>
-            <Text style ={styles.text6}>{orders.ordered_by.address|| "Waha"}</Text>
+            <Text style ={styles.task_key}>Address</Text>
+            <Text style ={styles.modal_text}>{orders.ordered_by.address|| "Waha"}</Text>
 
             {
                 orders.status === 'PENDING' && order.assigned_to === null?
@@ -64,8 +64,6 @@ const Details = ( {order} ) => {
                 :
                 <Button title='Decline' onPress={declineaccepted}></Button>
             }
-
-
 
         </View>
     )
