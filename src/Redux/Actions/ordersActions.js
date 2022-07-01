@@ -1,7 +1,6 @@
 import * as types from "../Constants/action-types";
 import axios from "axios";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useState } from "react";
 
 // const [toke, steToken] = useState("")
 

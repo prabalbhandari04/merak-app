@@ -12,6 +12,7 @@ export const styles = StyleSheet.create({
       flex:1,
       backgroundColor:colors.black,
       paddingBottom:30,
+      paddingLeft: 10,
       paddingTop:parameters.statusBarHeight,
       marginLeft: 70
   },

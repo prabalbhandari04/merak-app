@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Login from '../screens/login'
 import Task from '../screens/tasks';
+import Dashboard from '../screens/dashboard'
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +20,12 @@ const MyStack = () => {
         <Stack.Screen 
             name="Task" 
             component={Task} 
+            options ={{headerShown:false}}
+        />
+
+        <Stack.Screen 
+            name="Dashboard" 
+            component={Dashboard} 
             options ={{headerShown:false}}
         />
       </Stack.Navigator>

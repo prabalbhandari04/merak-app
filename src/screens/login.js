@@ -1,6 +1,7 @@
 import { Button, Text, View, TextInput } from 'react-native'
 import { useState } from 'react'
 import { TextField } from 'native-base'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {styles} from '../global/mystyle'
 // import { Part } from '../components/particle'
@@ -8,21 +9,33 @@ import {styles} from '../global/mystyle'
 import { useDispatch } from 'react-redux';
 import { loginUsers } from '../../src/Redux/Actions/userActions';
 
-const Login = ()=>{
+const Login = ({navigation})=>{
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+
+    const getData = async () => {
+        try {
+          const value = await AsyncStorage.getItem('access_token')
+          if(value !== null) {
+            navigation.navigate("Dashboard",{state:1})
+          }
+        } catch(e) {
+          console.log(e)
+        }
+      }
+
+    getData() 
 
     const dispatch = useDispatch(); //Redux Dispatch
 
     const handleLogin = ()=>{
-        // navigation.push('ReviewDeTasktails');
         dispatch(loginUsers({
            email,
            password,
          }), [dispatch]).then(()=>{
              setEmail("")
              setPassword("")
-             
+             navigation.navigate("Task",{state:1})
          })
 
         }
