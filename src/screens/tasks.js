@@ -2,7 +2,6 @@ import { StatusBar } from 'expo-status-bar'
 import React,{ useEffect } from 'react'
 import { Text, View ,ScrollView, Button } from 'react-native'
 import Cards from '../components/cards';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {useSelector, useDispatch} from 'react-redux';
 import {loadUnassigned, loadPending, loadAccepted} from '../../src/Redux/Actions/ordersActions';
@@ -12,11 +11,6 @@ import {styles} from '../global/mystyle'
 const Tasks = ({ navigation }) => {
   const dispatch = useDispatch(); //Redux Dispatch
   const {accepted, pending, unassigned} = useSelector(state => state.data); //Redux State
-  
-//   navigation.reset({
-//     index: 0,
-//     routes: [{ name: 'Task' }],
-//   });
 
 const todashboard = ()=>{
     navigation.navigate("Dashboard",{state:1})

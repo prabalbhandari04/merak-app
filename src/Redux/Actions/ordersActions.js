@@ -24,11 +24,6 @@ const getData = async () => {
       };
   })
 
-//Authentication Header-------------------------------
-const tok = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY4NTgzODAxLCJpYXQiOjE2NTY1ODM4MDEsImp0aSI6Ijg3NjAwNDAxNjE2MjQzNDI5MDNjOWIxMTVkMjQ4MTJhIiwidXNlcl9pZCI6MX0.9EPq_L4FChcM4C9BtbDQCHCZa6fDmCyyJnE4Rj5LP6c"
-
-
-
 //------------Get Ouders----------------------------
 const getOrders = (orders) => ({
     type: types.GET_ORDERS,
@@ -52,12 +47,6 @@ const getAccepted = (orders) => ({
     type: types.ACCEPTED_ORDERS,
     payload: orders,
 })
-
-//------------Put Ouders----------------------------
-const ordersUpdate = () => ({
-    type: types.UPDATE_ORDERS,
-})
-
 
 
 //------------Api Call Get Products----------------------------

@@ -141,6 +141,12 @@ content_view: {
     marginHorizontal:5
   },
 
+  attend_view: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 20,
+  },
+
 
   // Textfield
 
@@ -165,6 +171,17 @@ content_view: {
 
   login_button:{
     maxWidth: 100,
+  },
+
+  attend_button:{
+    marginHorizontal: 20,
+    backgroundColor: colors.blue,
+    padding: 10,
+    height: 100,
+    width: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 100
   }
 
 })

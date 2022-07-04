@@ -5,9 +5,12 @@ import {styles} from '../global/mystyle'
 
 const Dashboard = ({ navigation })=>{
 
-    
     const totasks = async()=>{
         navigation.navigate("Task",{state:1})
+    }
+
+    const toattendance = async()=>{
+        navigation.navigate("Attendance",{state:1})
     }
 
 
@@ -18,8 +21,13 @@ const Dashboard = ({ navigation })=>{
 
     return(
         <View style ={styles.container}>
-            <Text>Wahaha</Text>
+            <Text style={styles.text_title}>
+                  Dashboard
+            </Text>
+
             <Button title='Tasks' onPress={totasks} ></Button>
+            <View style= {{height: 5}}></View>
+            <Button title='Attendance' onPress={toattendance} ></Button>
             <View style= {{height: 5}}></View>
             <Button title='Logout' onPress={tologin} ></Button>
 

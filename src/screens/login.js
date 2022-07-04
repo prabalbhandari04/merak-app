@@ -1,6 +1,5 @@
 import { Button, Text, View, TextInput } from 'react-native'
 import { useState } from 'react'
-import { TextField } from 'native-base'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {styles} from '../global/mystyle'
