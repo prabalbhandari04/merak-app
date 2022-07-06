@@ -81,7 +81,7 @@ const SavingScreen = props => {
 
     return (
         <SafeAreaView style={styles.screen}>
-
+                <Text>Money Saving Screen</Text>
             {/* View for adding new saving goal */}
             <View style={styles.GoalBtn}>
                 <AddGoalBtn onPress={() => addGoalHandler()}></AddGoalBtn>

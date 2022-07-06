@@ -5,6 +5,7 @@ import ExpenseLimit from "../components/ExpenseLimit";
 const MoneyLimitScreen = (props) => {
     return (
         <View style={styles.screen}>
+            <Text>Money Limit Screen</Text>
             <ExpenseLimit />
         </View>
     );
