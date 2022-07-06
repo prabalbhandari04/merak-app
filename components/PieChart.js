@@ -39,7 +39,6 @@ function FinancePieChart({ title, data }) {
                         backgroundColor={'transparent'}
                         center={[0, 0]}
                         hasLegend={true}
-                    // avoidFalseZero={true}
                     />
                 </View>
 

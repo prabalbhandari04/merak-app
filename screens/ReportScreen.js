@@ -5,7 +5,6 @@ import { Entypo } from '@expo/vector-icons';
 import { Foundation } from '@expo/vector-icons';
 import FinancePieChart from '../components/PieChart';
 import FinanceBarChart from '../components/BarChart';
-import { getMonthExpense, getMonthIncome, getTransactionByExpense, getTransactionByIncome, getTransactionByType } from '../Helper/firebaseAPI';
 
 const ReportScreen = props => {
     const [currentState, setCurrentState] = useState('COLUMN CHART');
@@ -16,43 +15,16 @@ const ReportScreen = props => {
     const [monthIncome, setMonthIncome] = useState([])
 
 
-    useEffect(() => {
-        const unsubscribe = props.navigation.addListener('focus', () => {
-            getTransactionByType(setTypeData);
-            getTransactionByExpense(setExpenseData);
-            getTransactionByIncome(setIncomeData);
-            getMonthExpense(setMonthExpense)
-            getMonthIncome(setMonthIncome);
-        })
-
-        return unsubscribe;
-
-        // setDeleteTrigger(false);
-    }, [props.navigation]);
-
 
     return (
         <View style={styles.screen}>
 
             {/* view for displaying header bar: COLUMN CHAT and PIE CHART */}
             <SafeAreaView style={styles.headerBar}>
-                <TouchableOpacity
-                    style={styles.category}
-                    onPress={() => setCurrentState('COLUMN CHART')}
-                >
-                    <Entypo name="bar-graph" size={FONTSIZE.header2} color="white" />
+                    <Entypo name="bar-graph" size={FONTSIZE.header2} color='rgb(52,222,209)' />
                     <Text style={[styles.cate_text]}>COLUMN CHART   </Text>
                     <View style={{ width: '98%', borderWidth: currentState == "COLUMN CHART" ? 2 : 0, borderColor: '#00C897', position: 'absolute', bottom: -3 }}></View>
-                </TouchableOpacity>
-                <View style={{ width: 0.25, backgroundColor: 'white' }}></View>
-                <TouchableOpacity
-                    style={styles.category}
-                    onPress={() => setCurrentState('PIE CHART')}
-                >
-                    <Foundation name="graph-pie" size={FONTSIZE.header2} color="white" />
-                    <Text style={[styles.cate_text]}>GLOBAL CHARACTERISTICS</Text>
-                    <View style={{ width: '98%', borderWidth: currentState == "PIE CHART" ? 2 : 0, borderColor: '#00C897', position: 'absolute', bottom: -3 }}></View>
-                </TouchableOpacity>
+                
             </SafeAreaView>
             <View style={{ marginTop: 20, padding: 10, }}>
                 {
@@ -89,12 +61,12 @@ const styles = StyleSheet.create({
     screen: {
         flex: 1,
         height: '100%',
-
+        
     },
 
     headerBar: {
         width: '100%',
-        backgroundColor: 'rgb(45,139, 126)',
+        backgroundColor: 'rgb(24,24,24)',
         flexDirection: 'row',
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
     },
@@ -108,7 +80,7 @@ const styles = StyleSheet.create({
     cate_text: {
         fontSize: FONTSIZE.header2,
         fontWeight: '500',
-        color: 'white',
+        color:'rgb(52,222,209)',
         padding: 5,
     }
 })

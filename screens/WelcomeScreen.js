@@ -19,7 +19,7 @@ const WelcomeScreen = (props) => {
             </View>
 
             <View style={{
-                height: '40%', backgroundColor: 'white', width: '100%', position: 'absolute', bottom: 0, borderTopEndRadius: 40, borderTopStartRadius: 40,
+                height: '40%', backgroundColor: 'rgb(24,24,24)', width: '100%', position: 'absolute', bottom: 0, borderTopEndRadius: 40, borderTopStartRadius: 40,
                 shadowColor: '#000000',
                 shadowOffset: {
                     width: 0,
@@ -32,14 +32,14 @@ const WelcomeScreen = (props) => {
 
                 <View style={{ width: '100%', justifyContent: 'center', padding: 20 }}>
                     <View style={{ width: '85%' }}>
-                        <Text style={{ padding: 10, fontSize: FONTSIZE.header1, fontWeight: 'bold', color: 'rgb(12,60,78)', textAlign: 'left' }}>Track your spending and build your own goals!</Text>
+                        <Text style={{ padding: 10, fontSize: FONTSIZE.header1, fontWeight: 'bold', color: 'rgb(51,222,209)', textAlign: 'left' }}>Track your spending and build your own goals!</Text>
                     </View>
 
-                    <Text style={{ paddingHorizontal: 10, fontSize: FONTSIZE.header2, fontWeight: '500', color: 'rgb(12,60,78)', textAlign: 'left' }}>Add transactions, track invoices, manage consumption and build your own goals. </Text>
+                    <Text style={{ paddingHorizontal: 10, fontSize: FONTSIZE.header2, fontWeight: '500', color: 'rgb(51,222,209)', textAlign: 'left' }}>Add transactions, track invoices, manage consumption and build your own goals. </Text>
                 </View>
                 <View style={{ flex: 1, width: '100%', alignItems: 'flex-end' }}>
                     <TouchableOpacity
-                        style={{ backgroundColor: 'red', padding: 15, margin: 15, borderRadius: 10, backgroundColor: 'rgb(12,60,78)' }}
+                        style={{ backgroundColor: 'red', padding: 15, margin: 15, borderRadius: 10, backgroundColor: 'rgb(24,24,24)' }}
                         onPress={() => {
                             signInAnonymously(auth)
                                 .then(() => {
@@ -52,7 +52,7 @@ const WelcomeScreen = (props) => {
                                     // ...
                                 });
                         }}>
-                        <Text style={{ fontSize: FONTSIZE.header2, color: 'white' }}>Start</Text>
+                        <Text style={{ fontSize: FONTSIZE.header2, color:'rgb(51,222,209)'  }}>Start</Text>
                     </TouchableOpacity>
                 </View>
             </View>

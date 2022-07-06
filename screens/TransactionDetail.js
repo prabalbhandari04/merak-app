@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     detailView: {
         marginTop: Platform.OS === "android" ? StatusBar.currentHeight + 20 : 20,
         width: '85%',
-        backgroundColor: 'white',
+        backgroundColor: 'rgb(51,222,209)',
         shadowColor: '#000000',
         shadowOffset: {
             width: 0,

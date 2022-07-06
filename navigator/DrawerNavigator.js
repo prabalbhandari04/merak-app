@@ -10,7 +10,7 @@ const Drawer = createDrawerNavigator();
 const DrawerNavigator = () => {
     return (
         <Drawer.Navigator screenOptions={{ headerShown: false }}>
-            <Drawer.Screen name="Trang chủ" component={Navigator} />
+            <Drawer.Screen name="Home page" component={Navigator} />
             <Drawer.Screen name="Welcome" component={WelcomeScreen} />
 
         </Drawer.Navigator>

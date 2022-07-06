@@ -55,7 +55,7 @@ const WalletType = props => {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'white',
+        backgroundColor: 'rgb(24,24,24)',
         width: '100%',
         height: '50%',
         shadowColor: '#000000',

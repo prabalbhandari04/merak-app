@@ -15,7 +15,8 @@ const styles = StyleSheet.create({
         width: 60,
         height: 60,
         borderRadius: 100,
-        backgroundColor: 'rgb(45,139, 126)',
+        backgroundColor: 'rgb(24,24,24)',
+        color : 'rgb(51,222,209)',
         justifyContent: 'center',
         alignItems: 'center',
         shadowColor: '#000000',
@@ -26,13 +27,13 @@ const styles = StyleSheet.create({
         shadowRadius: 2,
         shadowOpacity: 0.5,
         elevation: 5,
-
+        borderColor: 'rgb(12,60,78)',
     },
 
     text: {
         fontSize: FONTSIZE.extraLarge,
         fontWeight: '300',
-        color: 'white',
+        color: 'rgb(51,222,209)',
 
     }
 });

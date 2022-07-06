@@ -24,13 +24,13 @@ const TransactionCard = props => {
         return (
             <View style={styles.card}>
                 <View style={styles.info_view}>
-                    <Text style={{ color: 'white', fontSize: FONTSIZE.small, fontWeight: '400' }}>Day trading {day}/{parseInt(month)}/{year}</Text>
+                    <Text style={{ color: 'rgb(55,222,209)', fontSize: FONTSIZE.small, fontWeight: '400' }}>Day trading {day}/{parseInt(month)}/{year}</Text>
                 </View>
                 <View style={styles.info_view}>
-                    <Text style={{ color: 'white', fontSize: FONTSIZE.small, fontWeight: '400' }}>Spend the day  :{formatMoney(expenseValue)} Nrs</Text>
+                    <Text style={{ color: 'rgb(55,222,209)', fontSize: FONTSIZE.small, fontWeight: '400' }}>Spend the day  :{formatMoney(expenseValue)} Nrs</Text>
                 </View>
                 <View style={styles.info_view}>
-                    <Text style={{ color: 'white', fontSize: FONTSIZE.small, fontWeight: '400' }}>Income of the day  :+{formatMoney(incomeValue)} Nrs</Text>
+                    <Text style={{ color: 'rgb(55,222,209)', fontSize: FONTSIZE.small, fontWeight: '400' }}>Income of the day  :+{formatMoney(incomeValue)} Nrs</Text>
                 </View>
 
                 <View style={styles.item_list} >
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
         marginVertical: 10,
         width: '100%',
         // width: 400,
-        backgroundColor: 'white',
+        backgroundColor: 'rgb(24,24,24)',
         shadowColor: '#000000',
         shadowOffset: {
             width: 0,

@@ -2,7 +2,7 @@ import { NavigationContainer, getFocusedRouteNameFromRoute } from '@react-naviga
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Image, StyleSheet, Platform } from 'react-native';
-import { SavingStackNavigator, ExpenseControlStackNavigator, ReportStackNavigator, TransactionsStackNavigator } from './StackNavigator';
+import { ReportStackNavigator, TransactionsStackNavigator } from './StackNavigator';
 import TransactionInputScreen from '../screens/TransactionInputScreen';
 
 const Tab = createBottomTabNavigator();
@@ -12,7 +12,7 @@ const getTabBarVisibility = (route) => {
         ? route.state.routes[route.state.index].name
         : '';
 
-    if (routeName === 'Nhập giao dịch') {
+    if (routeName === 'Enter Transaction') {
         return false;
     }
 
@@ -30,8 +30,6 @@ const Navigator = () => {
                         url = require('../icon/refund.png');
                     else if (route.name === 'Report')
                         url = require('../icon/pie-chart.png');
-                    else if (route.name === 'Limit Spending')
-                        url = require('../icon/money-bag.png');
 
                     //return icon for each tab navgiator
                     return <Image
@@ -43,8 +41,9 @@ const Navigator = () => {
 
                 // Style tab navigator
                 headerShown: false,
-
-                tabBarActiveTintColor: 'rgb(73,139,134)',
+                tabBarInactiveBackgroundColor: 'rgb(24,24,24)',
+                tabBarActiveBackgroundColor : 'rgb(24,24, 24)',
+                tabBarActiveTintColor: 'rgb(51, 222, 209)',
                 tabBarInactiveTintColor: 'rgb(200,200,200)',
                 tabBarLabelStyle: {
                     fontSize: 12,
@@ -57,7 +56,6 @@ const Navigator = () => {
             <Tab.Screen name="Manage" component={TransactionsStackNavigator} options={({ route }) => ({
             })} />
             <Tab.Screen name="Report" component={ReportStackNavigator} />
-            <Tab.Screen name="Limit Spending" component={ExpenseControlStackNavigator} />
 
 
         </Tab.Navigator>

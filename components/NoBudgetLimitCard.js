@@ -18,7 +18,7 @@ const NoBudgetLimitCard = props => {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'white',
+        backgroundColor: 'rgb(24,24,24)',
         borderRadius: 15,
         padding: 20,
         height: '60%',

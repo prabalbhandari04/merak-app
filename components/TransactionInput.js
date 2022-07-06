@@ -73,16 +73,16 @@ const TransactionInput = (props) => {
           "/" +
           date.getFullYear().toString()
         }
-        color={"rgb(45,139, 126)"}
+        color={'rgb(52,222,209)'}
         onPress={() => setDateModal(true)}
       />
     );
 
   const alertError = () => {
     Alert.alert(
-      "Lỗi",
-      "Bạn điền còn chưa đủ thông tin hoặc số tiền không hợp lệ!",
-      [{ text: "Sửa lại", onPress: () => {} }]
+      "Error",
+      "You have not filled in enough information or the amount is not valid!",
+      [{ text: "Cancel", onPress: () => {} }]
     );
   };
 
@@ -92,12 +92,12 @@ const TransactionInput = (props) => {
 
   const alertLimit = () => {
     Alert.alert(
-      "Nhắc nhở",
-      "Bạn đang vượt mốc giới hạn đề ra cho hạng mục này. Bạn có muốn tiếp tục?",
+      "Alert",
+      "You are exceeding the limit set for this category. Do you want to continue?",
       [
-        { text: "Quay lại", onPress: () => {} },
+        { text: "Cancel", onPress: () => {} },
         {
-          text: "Tiếp tục",
+          text: "Continue",
           onPress: () => {
             alertSuccess();
           },
@@ -154,7 +154,7 @@ const TransactionInput = (props) => {
         </View>
         <Button
           title={categoryTitle}
-          color={"rgb(45,139, 126)"}
+          color={'rgb(52,222,209)'}
           onPress={() => {
             setCateModal(true);
           }}
@@ -184,7 +184,7 @@ const TransactionInput = (props) => {
         {
           <Button
             title={walletValue}
-            color={"rgb(45,139, 126)"}
+            color={'rgb(52,222,209)'}
             onPress={() => {
               setWalletModal(true);
             }}
@@ -255,7 +255,7 @@ const TransactionInput = (props) => {
           ></Button>
           <Button
             title="Add"
-            color={"green"}
+            color={'rgb(52,222,209)'}
             onPress={() => {
               if (
                 money == null ||
@@ -280,11 +280,12 @@ const TransactionInput = (props) => {
 };
 
 const styles = StyleSheet.create({
+  
+
   container: {
-    position: "absolute",
-    top: "10%",
-    backgroundColor: "white",
-    width: "95%",
+    backgroundColor: "rgb(24,24,24)",
+    width: "100%",
+    height: "100%",
     padding: 10,
     shadowColor: "#000000",
     shadowOffset: {
@@ -298,11 +299,12 @@ const styles = StyleSheet.create({
   },
 
   input: {
-    backgroundColor: "white",
+    backgroundColor: "rgb(24,24,24)",
     height: 90,
     borderRadius: 8,
     padding: 5,
     marginBottom: 10,
+    color: 'rgb(52,222,209)'
   },
 
   inputTitle: {
@@ -310,11 +312,13 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     fontWeight: "600",
     marginLeft: 5,
+    color : 'rgb(52,222,209)'
   },
 
   textInput: {
     height: "70%",
     padding: 5,
+    color : 'rgb(52,222,209)',
     fontSize: FONTSIZE.body,
     fontWeight: "500",
     borderBottomWidth: 1,
@@ -324,8 +328,10 @@ const styles = StyleSheet.create({
 
   buttonContainer: {
     flexDirection: "row",
-    marginBottom: 10,
-    marginTop: 20,
+    position:"absolute",
+    left: "60%",
+    top:20,
+    margin:20,
     flex: 1,
     width: "30%",
     justifyContent: "space-between",

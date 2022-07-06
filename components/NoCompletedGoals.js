@@ -18,7 +18,7 @@ const NoCompletedGoals = props => {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'white',
+        backgroundColor: 'rgb(24,24,24)',
         borderRadius: 15,
         padding: 10,
         borderColor: 'rgb(12,60,78)',

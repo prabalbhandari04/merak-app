@@ -60,40 +60,37 @@ const TransactionScreen = props => {
             <SafeAreaView style={styles.headerBar}>
 
                 <View style={{ padding: 10, flexDirection: 'row', alignItems: 'center' }}>
-                    <Feather name="calendar" size={24} color="white" />
-                    <Text style={{ fontSize: FONTSIZE.small, color: 'white' }}>  {currentDate.getFullYear()}-{currentDate.getMonth() + 1}</Text>
+                    <Feather name="calendar" size={24} color='rgb(51,222,209)' />
+                    <Text style={{ fontSize: FONTSIZE.small, color: 'rgb(51,222,209)' }}>  {currentDate.getFullYear()}-{currentDate.getMonth() + 1}</Text>
                 </View>
                 <View>
-                    <Text style={{ fontSize: FONTSIZE.extraLarge, color: 'white', paddingLeft: 15, }}>
+                    <Text style={{ fontSize: FONTSIZE.extraLarge, color: 'rgb(51,222,209)', paddingLeft: 15, }}>
                         {displayedMoney ? formatMoney(displayedMoney.incomeValue - displayedMoney.expenseValue) : 0} Nrs
                     </Text>
                 </View>
 
                 <View>
                     <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 10, marginBottom: 5, paddingLeft: 10 }}>
-                        <Text style={{ fontSize: FONTSIZE.small, color: 'white', fontWeight: '500' }}>
+                        <Text style={{ fontSize: FONTSIZE.small, color: 'rgb(51,222,209)', fontWeight: '500' }}>
                             Total Spending  :
                         </Text>
-                        <Text style={{ fontSize: FONTSIZE.header1, color: 'white' }}>
+                        <Text style={{ fontSize: FONTSIZE.header1, color: 'rgb(51,222,209)' }}>
                             {displayedMoney ? formatMoney(displayedMoney.expenseValue) : 0} Nrs
                         </Text>
                     </View>
 
                     <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10, paddingLeft: 10 }}>
-                        <Text style={{ fontSize: FONTSIZE.small, color: 'white', fontWeight: '500' }}>
+                        <Text style={{ fontSize: FONTSIZE.small, color: 'rgb(51,222,209)', fontWeight: '500' }}>
                         Total Income  :
                         </Text>
-                        <Text style={{ fontSize: FONTSIZE.header1, color: 'white' }}>
+                        <Text style={{ fontSize: FONTSIZE.header1, color: 'rgb(51,222,209)' }}>
                             {displayedMoney ? formatMoney(displayedMoney.incomeValue) : 0} Nrs
                         </Text>
                     </View>
 
                     <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10, paddingLeft: 10 }}>
                         <TouchableOpacity style={styles.walletDetail} onPress={() => props.navigation.navigate("Wallet details", { money: displayedMoney })}>
-                            <Text style={{ color: 'rgb(45,139, 126)', fontSize: FONTSIZE.small }}>Wallet details</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.deleteView} onPress={() => props.navigation.navigate("Transaction deleted")}>
-                            <Text style={{ color: 'rgb(45,139, 126)', fontSize: FONTSIZE.small }}>Transaction deleted</Text>
+                            <Text style={{ color: 'rgb(24,24,24)', fontSize: FONTSIZE.small }}>Wallet details</Text>
                         </TouchableOpacity>
                     </View>
 
@@ -111,7 +108,7 @@ const TransactionScreen = props => {
 
 
             <View style={styles.listView}>
-                {!isLoading ? <ActivityIndicator size="large" color={'rgb(45,139, 126)'} /> :
+                {!isLoading ? <ActivityIndicator size="large"  backgroundColor={'rgb(24,24,24)'} color={'rgb(51, 222, 209)'} /> :
                     <FlatList
                         contentContainerStyle={{ paddingBottom: transactionList.length == 0 ? 100 : 300, width: '100%', flexGrow: 1, }}
                         data={transactionList}
@@ -129,12 +126,13 @@ const styles = StyleSheet.create({
     screen: {
         flex: 1,
         width: '100%',
+        backgroundColor: 'rgb(24,24,24)',
     },
 
     headerBar: {
         width: '100%',
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-        backgroundColor: 'rgb(45,139, 126)',
+        backgroundColor: 'rgb(24,24,24)'
     },
 
     addView: {
@@ -154,14 +152,14 @@ const styles = StyleSheet.create({
 
     walletDetail: {
         marginRight: 10,
-        backgroundColor: 'white',
+        backgroundColor: 'rgb(51,222,209)',
         borderRadius: 5,
         padding: 5,
 
     },
 
     deleteView: {
-        backgroundColor: 'white',
+        backgroundColor: 'rgb(51,222,209)',
         borderRadius: 5,
         padding: 5,
     },
