@@ -13,6 +13,7 @@ export const loginUsers = (credential) => {
         await axios.post(`https://merak-test.onrender.com/user/auth/login/`, credential).then(async (res) => {
             await AsyncStorage.setItem('access_token', res.data.access)
             await AsyncStorage.setItem('refresh_token', res.data.refresh)
+            console.log(res.data)
             dispatch(usersLogin(res.data));
         }).catch((err) => console.log(err));
     }

@@ -60,6 +60,7 @@ export const loadOrders = () => {
 
 export const loadUnassigned = () => {
     return function (dispatch) {
+        console.log(headers)
         axios.get(`https://merak-test.onrender.com/inventory/order/?status=PENDING&assigned_status=false`, {headers: headers}).then((res) => {
             dispatch(getUnassigned(res.data));
         }).catch((err) => console.log(err));

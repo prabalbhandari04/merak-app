@@ -115,6 +115,16 @@ content_view: {
 
   },
 
+  info_text: {
+   color: '#00A7E3',
+   fontSize: 18
+  },
+
+  the_info: {
+    color: colors.white,
+    fontSize: 18
+  },
+
 
   // Other Views
   
@@ -145,6 +155,17 @@ content_view: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 20,
+  },
+
+  dash_info: {
+    flexDirection: 'row',
+    backgroundColor: '#181818',
+    margin: 10,
+    padding: 10,
+    height: 70,
+    justifyContent: 'space-between',
+    borderRadius: 20,
+    alignItems: 'center'
   },
 
 
