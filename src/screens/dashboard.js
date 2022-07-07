@@ -2,6 +2,7 @@ import React,{ useEffect } from 'react'
 import { Text, View ,ScrollView, Button } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {styles} from '../global/mystyle'
+import { CommonActions } from '@react-navigation/native';
 
 import {useSelector, useDispatch} from 'react-redux';
 import {loadUnassigned, loadPending, loadAccepted} from '../../src/Redux/Actions/ordersActions';
@@ -28,7 +29,18 @@ const Dashboard = ({ navigation })=>{
 
     const tologin = async()=>{
         const value = await AsyncStorage.removeItem('access_token')
-        navigation.navigate("Login",{state:1})
+        navigation.dispatch(
+            CommonActions.reset({
+              index: 1,
+              routes: [
+                { name: "Login" },
+                // {
+                //   name: "Profile",
+                //   params: { user: "jane" },
+                // },
+              ],
+            })
+          );
     }    
     
     return(

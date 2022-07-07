@@ -1,6 +1,7 @@
 import { Button, Text, View, TextInput } from 'react-native'
 import { useState } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { CommonActions } from '@react-navigation/native';
 
 import {styles} from '../global/mystyle'
 // import { Part } from '../components/particle'
@@ -16,7 +17,14 @@ const Login = ({navigation})=>{
         try {
           const value = await AsyncStorage.getItem('access_token')
           if(value !== null) {
-            navigation.navigate("Dashboard",{state:1})
+            navigation.dispatch(
+                CommonActions.reset({
+                  index: 1,
+                  routes: [
+                    { name: "Dashboard" },
+                  ],
+                })
+              );
           }
         } catch(e) {
           console.log(e)
@@ -34,7 +42,15 @@ const Login = ({navigation})=>{
          }), [dispatch]).then(()=>{
              setEmail("")
              setPassword("")
-             navigation.navigate("Task",{state:1})
+            navigation.dispatch(
+                CommonActions.reset({
+                  index: 1,
+                  routes: [
+                    { name: "Dashboard" },
+                  ],
+                })
+              );
+             
          })
 
         }
