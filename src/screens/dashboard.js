@@ -13,6 +13,10 @@ const Dashboard = ({ navigation })=>{
         navigation.navigate("Attendance",{state:1})
     }
 
+    const toexpense = async()=>{
+        navigation.navigate("Expense",{state:1})
+    }
+
 
     const tologin = async()=>{
         const value = await AsyncStorage.removeItem('access_token')
@@ -26,6 +30,8 @@ const Dashboard = ({ navigation })=>{
             </Text>
 
             <Button title='Tasks' onPress={totasks} ></Button>
+            <View style= {{height: 5}}></View>
+            <Button title='Expense' onPress={toexpense} ></Button>
             <View style= {{height: 5}}></View>
             <Button title='Attendance' onPress={toattendance} ></Button>
             <View style= {{height: 5}}></View>

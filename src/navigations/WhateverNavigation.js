@@ -6,7 +6,7 @@ import Login from '../screens/login'
 import Task from '../screens/tasks';
 import Dashboard from '../screens/dashboard'
 import Attendance from '../screens/attendance'
-
+import Expense from '../screens/expense'
 const Stack = createNativeStackNavigator();
 
 const MyStack = () => {
@@ -34,6 +34,11 @@ const MyStack = () => {
             name="Attendance" 
             component={Attendance} 
             options ={{headerShown:false}}
+        />
+        <Stack.Screen
+          name="Expense"
+          component={Expense}
+          options ={{headerShown:false}}
         />
       </Stack.Navigator>
     </NavigationContainer>
