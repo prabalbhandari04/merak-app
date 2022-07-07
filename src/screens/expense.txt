@@ -18,7 +18,7 @@ const wait = (timeout) => {
 }
 
 
-const Expense = props => {
+const Expense = ({ navigation })=> {
     const [modalVisible, setModalVisible] = useState(false); //state to show modal and hide modal for transaction input
     const [trigger, setTrigger] = useState(true); // save transaction input value
     const [transactionList, setTransactionList] = useState([]); // a list of transaction of a particular date
@@ -98,7 +98,8 @@ const Expense = props => {
             {/* {View for button adding transaction } */}
             <View style={styles.addView}>
                 <AddTransactionBtn onPress={() => {
-                    props.navigation.navigate('ExpenseInput')
+                    navigation.navigate("Task",{state:1})
+
                 }
                 } />
             </View>
