@@ -14,16 +14,7 @@ const MyStack = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-      <Stack.Screen
-          name="Expense"
-          component={Expense}
-          options ={{headerShown:false}}
-        />
-        <Stack.Screen
-          name="ExpenseInput"
-          component={ExpenseInput}
-          options ={{headerShown:false}}
-        />
+      
         <Stack.Screen
           name="Login"
           component={Login}
@@ -46,7 +37,16 @@ const MyStack = () => {
             component={Attendance} 
             options ={{headerShown:false}}
         />
-       
+       <Stack.Screen
+          name="Expense"
+          component={Expense}
+          options ={{headerShown:false}}
+        />
+        <Stack.Screen
+          name="ExpenseInput"
+          component={ExpenseInput}
+          options ={{headerShown:false}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

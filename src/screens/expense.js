@@ -68,14 +68,6 @@ const Expense = props => {
                 </View>
 
                 <View>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 10, marginBottom: 5, paddingLeft: 10 }}>
-                        <Text style={{ fontSize: FONTSIZE.small, color: 'rgb(51,222,209)', fontWeight: '500' }}>
-                            Total Spending  :
-                        </Text>
-                        <Text style={{ fontSize: FONTSIZE.header1, color: 'rgb(51,222,209)' }}>
-                            {displayedMoney ? formatMoney(displayedMoney.expenseValue) : 0} Nrs
-                        </Text>
-                    </View>
 
                     <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10, paddingLeft: 10 }}>
                         <Text style={{ fontSize: FONTSIZE.small, color: 'rgb(51,222,209)', fontWeight: '500' }}>

@@ -213,12 +213,12 @@ const styles = StyleSheet.create({
   
 
   container: {
-    // backgroundColor: "rgb(24,24,24)",
-    backgroundColor : "rgb(255,255,255)",
+    backgroundColor: "rgb(24,24,24)",
     color : 'rgb(52,222,209)',
     width: "100%",
     height: "100%",
     padding: 10,
+    marginTop: 25,
     shadowColor: "#000000",
     shadowOffset: {
       width: 0,
