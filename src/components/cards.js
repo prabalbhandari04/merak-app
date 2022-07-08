@@ -44,7 +44,7 @@ const Cards = ( {order} ) => {
 
                         <View  style ={styles.task_each}>
                             <Text style ={styles.task_key}>{"Location: "} </Text>
-                            <Text style ={styles.task_value}>{orders.status} </Text>
+                            <Text style ={styles.task_value}>{orders.ordered_by.address} </Text>
                         </ View>
 
                     </View>

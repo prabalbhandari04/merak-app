@@ -12,6 +12,11 @@ const usersLogin = (tokens) => ({
     payload: tokens
 })
 
+const getprofile = (profile)=>({
+    type: types.GET_USERS,
+    payload: profile
+})
+
 export const loginUsers = (credential) => {
     return async function (dispatch) {
         await axios.post(`https://merak-test.onrender.com/user/auth/login/`, credential).then(async (res) => {
@@ -21,6 +26,17 @@ export const loginUsers = (credential) => {
             // await SecureStore.setItemAsync('access_token', res.data.access);
             // storage.set('access_token', res.data.access)
             dispatch(usersLogin(res.data));
+        }).catch((err) => console.log(err));
+    }
+}
+
+export const getuserprof = (token) => {
+    return async function (dispatch) {
+        await axios.get(`https://merak-test.onrender.com/user/auth/get_profile/`, {headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            "Authorization": 'Bearer ' + token
+        }}).then(async (res) => {
+            dispatch(getprofile(res.data));
         }).catch((err) => console.log(err));
     }
 }

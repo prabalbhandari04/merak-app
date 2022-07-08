@@ -203,6 +203,12 @@ content_view: {
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 100
-  }
+  },
+  avatar: {
+    width: 200,
+    height: 200,
+    resizeMode: 'stretch',
+    margin: 10
+  },
 
 })

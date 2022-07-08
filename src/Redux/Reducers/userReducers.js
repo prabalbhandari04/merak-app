@@ -13,15 +13,9 @@ export const usersReducers = (state = initialState, action) => {
         case types.GET_USERS:
             return {
                 ...state,
-                users: action.payload,
+                user: action.payload,
                 loading: false,
             };
-            
-        case types.CREATE_USERS:
-            return {
-                ...state,
-                loading: false,
-            }
 
         case types.LOGIN_USERS:
             return {
