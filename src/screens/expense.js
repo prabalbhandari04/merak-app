@@ -86,11 +86,6 @@ const Expense = props => {
                         </Text>
                     </View>
 
-                    <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10, paddingLeft: 10 }}>
-                        <TouchableOpacity style={styles.walletDetail} onPress={() => props.navigation.navigate("Wallet details", { money: displayedMoney })}>
-                            <Text style={{ color: 'rgb(24,24,24)', fontSize: FONTSIZE.small }}>Wallet details</Text>
-                        </TouchableOpacity>
-                    </View>
 
                 </View>
             </SafeAreaView>
