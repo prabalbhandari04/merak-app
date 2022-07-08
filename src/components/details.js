@@ -1,30 +1,32 @@
 import { Button, Text, View } from 'react-native'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { styles } from '../global/mystyle'
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {acceptPendingOrder, declineAssignedOrder, declineAcceptedOrder} from '../../src/Redux/Actions/ordersActions';
 
 const Details = ( {order} ) => {
     const [orders, setOrders] = useState(order)
 
-    const dispatch = useDispatch(); //Redux Dispatch
+    const dispatch = useDispatch(); //Redux 
+    
+    const { tokens } = useSelector(state=> state.data1)
 
     const acceptpending = ()=>{
-        dispatch(acceptPendingOrder(order.invoice))
+        dispatch(acceptPendingOrder(order.invoice, tokens))
     }
 
     const declineassigned = ()=>{
         console.log("yes")
-        dispatch(declineAssignedOrder(order.invoice))
+        dispatch(declineAssignedOrder(order.invoice, tokens))
     }
 
     const declineaccepted = ()=>{
-        dispatch(declineAcceptedOrder(order.invoice))
+        dispatch(declineAcceptedOrder(order.invoice, tokens))
     }
 
     const acceptassigned = ()=>{
-        console.log("waha")
+        dispatch(acceptPendingOrder(order.invoice, tokens))
     }
 
     return(

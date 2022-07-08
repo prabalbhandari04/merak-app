@@ -9,8 +9,15 @@ import {loadUnassigned, loadPending, loadAccepted} from '../../src/Redux/Actions
 
 const Dashboard = ({ navigation })=>{
     const {accepted, pending, unassigned} = useSelector(state => state.data); //Redux State
+    const { tokens } = useSelector(state=> state.data1)
 
     const dispatch = useDispatch(); //Redux Dispatch
+
+    useEffect(()=>{
+        dispatch(loadUnassigned(tokens));
+        dispatch(loadAccepted(tokens));
+        dispatch(loadPending(tokens));
+      }, [dispatch])
 
     const totasks = async()=>{
         navigation.navigate("Task",{state:1})
@@ -34,10 +41,6 @@ const Dashboard = ({ navigation })=>{
               index: 1,
               routes: [
                 { name: "Login" },
-                // {
-                //   name: "Profile",
-                //   params: { user: "jane" },
-                // },
               ],
             })
           );
