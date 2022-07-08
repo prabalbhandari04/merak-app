@@ -39,13 +39,13 @@ const Expense = props => {
 
     {/* render item for flat list */ }
     const renderItem = ({ item }) => {
-        return <TransactionCard itemList={item.data} id={item.id} navigation={props.navigation} refresh={() => setIsLoading(false)} />
+        return <TransactionCard itemList={item.data} id={item.id} navigation={props.navigation}  />
     }
 
     useEffect(() => {
 
         const unsubscribe = props.navigation.addListener('focus', () => {
-            loadTransaction(setTransactionList, setIsLoading, setDisplayedMoney);
+            loadTransaction(setTransactionList, setDisplayedMoney);
         })
 
         return () => unsubscribe();
@@ -61,13 +61,10 @@ const Expense = props => {
                     <Feather name="calendar" size={24} color='rgb(51,222,209)' />
                     <Text style={{ fontSize: FONTSIZE.small, color: 'rgb(51,222,209)' }}>  {currentDate.getFullYear()}-{currentDate.getMonth() + 1}</Text>
                 </View>
-                <View>
-                    <Text style={{ fontSize: FONTSIZE.extraLarge, color: 'rgb(51,222,209)', paddingLeft: 15, }}>
-                        {displayedMoney ? formatMoney(displayedMoney.incomeValue - displayedMoney.expenseValue) : 0} Nrs
-                    </Text>
-                </View>
+                
 
                 <View>
+                    
 
                     <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10, paddingLeft: 10 }}>
                         <Text style={{ fontSize: FONTSIZE.small, color: 'rgb(51,222,209)', fontWeight: '500' }}>
@@ -92,14 +89,13 @@ const Expense = props => {
 
 
             <View style={styles.listView}>
-                {!isLoading ? <ActivityIndicator size="large"  backgroundColor={'rgb(24,24,24)'} color={'rgb(51, 222, 209)'} /> :
                     <FlatList
                         contentContainerStyle={{ paddingBottom: transactionList.length == 0 ? 100 : 300, width: '100%', flexGrow: 1, }}
                         data={transactionList}
                         renderItem={renderItem}
                         keyExtractor={item => item.id}
                         ListEmptyComponent={NoTransactionCard}
-                    />}
+                    />
 
             </View>
         </View>
