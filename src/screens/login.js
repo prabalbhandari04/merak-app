@@ -1,4 +1,4 @@
-import { Button, Text, View, TextInput } from 'react-native'
+import { Button, Text, View, TextInput, Pressable } from 'react-native'
 import { useState } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { CommonActions } from '@react-navigation/native';
@@ -14,6 +14,18 @@ const Login = ({navigation})=>{
     const [password, setPassword] = useState("")
 
     const dispatch = useDispatch(); //Redux Dispatch
+    const [vis, setVis] = useState(true)
+    const [cont, setCont] = useState("show")
+
+    const showpass = ()=>{
+      setVis(!vis)
+      if(vis===true){
+        setCont("hide")
+      }else{
+        setCont("show")
+      }
+
+    }
 
     const getData = async () => {
         try {
@@ -75,7 +87,14 @@ const Login = ({navigation})=>{
                 
                 <View style={ styles.content_view }>
                     <Text style={ styles.login_key }> Password </Text>
-                    <TextInput style={ styles.password_field } value={password} onChangeText={(text)=>{setPassword(text)}} ></TextInput>
+
+                    <View style={{ flexDirection:'row' }}>
+                      <TextInput style={ styles.password_field } value={password} secureTextEntry={vis} onChangeText={(text)=>{setPassword(text)}}  ></TextInput>
+                      <Pressable onPress={showpass}><Text style={{ fontSize:10, marginLeft:5,marginTop: 10}}>{cont}</Text></Pressable>
+                    </View>
+
+
+
                 </View>
 
                 <View style={ styles.login_button }>
