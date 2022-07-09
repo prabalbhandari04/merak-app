@@ -1,22 +1,34 @@
 import { Button, Text, View, TextInput } from 'react-native'
 import { useState } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { CommonActions } from '@react-navigation/native';
 
 import {styles} from '../global/mystyle'
 // import { Part } from '../components/particle'
                                          
 import { useDispatch } from 'react-redux';
-import { loginUsers } from '../../src/Redux/Actions/userActions';
+import { loginUsers, tok_fix } from '../../src/Redux/Actions/userActions';
 
 const Login = ({navigation})=>{
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
+    const dispatch = useDispatch(); //Redux Dispatch
+
     const getData = async () => {
         try {
           const value = await AsyncStorage.getItem('access_token')
           if(value !== null) {
-            navigation.navigate("Dashboard",{state:1})
+            dispatch(tok_fix(value))
+
+            navigation.dispatch(
+                CommonActions.reset({
+                  index: 1,
+                  routes: [
+                    { name: "Dashboard" },
+                  ],
+                })
+              );
           }
         } catch(e) {
           console.log(e)
@@ -25,8 +37,6 @@ const Login = ({navigation})=>{
 
     getData() 
 
-    const dispatch = useDispatch(); //Redux Dispatch
-
     const handleLogin = ()=>{
         dispatch(loginUsers({
            email,
@@ -34,7 +44,15 @@ const Login = ({navigation})=>{
          }), [dispatch]).then(()=>{
              setEmail("")
              setPassword("")
-             navigation.navigate("Task",{state:1})
+            navigation.dispatch(
+                CommonActions.reset({
+                  index: 1,
+                  routes: [
+                    { name: "Dashboard" },
+                  ],
+                })
+              );
+             
          })
 
         }

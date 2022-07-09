@@ -1,12 +1,14 @@
 import React from 'react'
 import { Text, View, Button, Pressable } from 'react-native'
 import {styles} from '../global/mystyle'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { attendIn, attendOut } from '../Redux/Actions/attendanceAction';
 
 
 const Attendance = ({ navigation })=>{
     const dispatch = useDispatch(); //Redux Dispatch
+    const { tokens } = useSelector(state=> state.data1)
+
     
     const todashboard = ()=>{
         navigation.navigate("Dashboard",{state:1})
@@ -14,12 +16,12 @@ const Attendance = ({ navigation })=>{
 
     const punchin = ()=>{
         console.log("punchin")
-        dispatch(attendIn())
+        dispatch(attendIn(tokens))
     }
 
     const punchout = ()=>{
         console.log("punchout")
-        dispatch(attendOut())
+        dispatch(attendOut(tokens))
     }
 
 

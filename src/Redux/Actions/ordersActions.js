@@ -2,27 +2,25 @@ import * as types from "../Constants/action-types";
 import axios from "axios";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// const [toke, steToken] = useState("")
 
 var token = ""
 var headers = ""
 
-const getData = async () => {
-    try {
-      const value = await AsyncStorage.getItem('access_token')
-      if(value !== null) {
-        token = value
-      }
-    } catch(e) {
-      console.log(e)
-    }
-  }
-  getData().then(()=>{
-      headers = {
-              "Content-type": "application/json; charset=UTF-8",
-              "Authorization": 'Bearer ' + token
-      };
-  })
+// const getData = async () => {
+//     try {
+//       const value = await AsyncStorage.getItem('access_token')
+//       if(value !== null) {
+//         headers = {
+//             "Content-type": "application/json; charset=UTF-8",
+//             "Authorization": 'Bearer ' + token
+//         };
+//         token = value
+//       }
+//     } catch(e) {
+//       console.log(e)
+//     }
+//   }
+//   getData()
 
 //------------Get Ouders----------------------------
 const getOrders = (orders) => ({
@@ -50,73 +48,98 @@ const getAccepted = (orders) => ({
 
 
 //------------Api Call Get Products----------------------------
-export const loadOrders = () => {
+export const loadOrders = (token) => {
     return function (dispatch) {
-        axios.get(`https://merak-test.onrender.com/inventory/order/`, {headers: headers}).then((res) => {
+        axios.get(`https://merak-test.onrender.com/inventory/order/`, {headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            "Authorization": 'Bearer ' + token
+        }}).then((res) => {
             dispatch(getOrders(res.data));
         }).catch((err) => console.log(err));
     }
 }
 
-export const loadUnassigned = () => {
+export const loadUnassigned = (token) => {
     return function (dispatch) {
-        axios.get(`https://merak-test.onrender.com/inventory/order/?status=PENDING&assigned_status=false`, {headers: headers}).then((res) => {
+        console.log(headers)
+        axios.get(`https://merak-test.onrender.com/inventory/order/?status=PENDING&assigned_status=false`, {headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            "Authorization": 'Bearer ' + token
+        }}).then((res) => {
             dispatch(getUnassigned(res.data));
         }).catch((err) => console.log(err));
     }
 }
 
-export const loadPending = () => {
+export const loadPending = (token) => {
     return function (dispatch) {
-        axios.get(`https://merak-test.onrender.com/inventory/order/get_user_pending_order/`, {headers: headers}).then((res) => {
+        axios.get(`https://merak-test.onrender.com/inventory/order/get_user_pending_order/`, {headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            "Authorization": 'Bearer ' + token
+        }}).then((res) => {
             dispatch(getPending(res.data));
         }).catch((err) => console.log(err));
     }
 }
 
-export const loadAccepted = () => {
+export const loadAccepted = (token) => {
     return function (dispatch) {
-        axios.get(`https://merak-test.onrender.com/inventory/order/get_user_accepted_order/`, {headers: headers}).then((res) => {
+        axios.get(`https://merak-test.onrender.com/inventory/order/get_user_accepted_order/`, {headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            "Authorization": 'Bearer ' + token
+        }}).then((res) => {
             dispatch(getAccepted(res.data));
         }).catch((err) => console.log(err));
     }
 }
 
-export const putOrders = (uuid, product) => {
+export const putOrders = (uuid, product, token) => {
     return function (dispatch) {
-        axios.patch(`https://merak-test.onrender.com/inventory/order/${uuid}/`, product, {headers: headers}).then((res) => {
+        axios.patch(`https://merak-test.onrender.com/inventory/order/${uuid}/`, product, {headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            "Authorization": 'Bearer ' + token
+        }}).then((res) => {
             //dispatch(orderAdded());
             dispatch(loadOrders());
         }).catch((err) => console.log(err));
     }
 }
 
-export const acceptPendingOrder = (uuid) => {
+export const acceptPendingOrder = (uuid, token) => {
     return function (dispatch) {
-        axios.get(`https://merak-test.onrender.com/inventory/order/accept_pending_order/${uuid}/`, {headers: headers}).then((res) => {
-            dispatch(loadAccepted())
-            dispatch(loadUnassigned())
-            dispatch(loadPending())
+        axios.get(`https://merak-test.onrender.com/inventory/order/accept_pending_order/${uuid}/`, {headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            "Authorization": 'Bearer ' + token
+        }}).then((res) => {
+            dispatch(loadAccepted(token))
+            dispatch(loadUnassigned(token))
+            dispatch(loadPending(token))
         }).catch((err) => console.log(err));
     }
 }
 
-export const declineAssignedOrder = (uuid) => {
+export const declineAssignedOrder = (uuid, token) => {
     return function (dispatch) {
-        axios.get(`https://merak-test.onrender.com/inventory/order/decline_assigned_order/${uuid}/`, {headers: headers}).then((res) => {
-            dispatch(loadAccepted())
-            dispatch(loadUnassigned())
-            dispatch(loadPending())
+        axios.get(`https://merak-test.onrender.com/inventory/order/decline_assigned_order/${uuid}/`, {headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            "Authorization": 'Bearer ' + token
+        }}).then((res) => {
+            dispatch(loadAccepted(token))
+            dispatch(loadUnassigned(token))
+            dispatch(loadPending(token))
         }).catch((err) => console.log(err));
     }
 }
 
-export const declineAcceptedOrder = (uuid) => {
+export const declineAcceptedOrder = (uuid, token) => {
     return function (dispatch) {
-        axios.get(`https://merak-test.onrender.com/inventory/order/decline_accepted_order/${uuid}/`, {headers: headers}).then((res) => {
-            dispatch(loadAccepted())
-            dispatch(loadUnassigned())
-            dispatch(loadPending())
+        axios.get(`https://merak-test.onrender.com/inventory/order/decline_accepted_order/${uuid}/`, {headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            "Authorization": 'Bearer ' + token
+        }}).then((res) => {
+            dispatch(loadAccepted(token))
+            dispatch(loadUnassigned(token))
+            dispatch(loadPending(token))
         }).catch((err) => console.log(err));
     }
 }

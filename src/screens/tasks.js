@@ -11,16 +11,16 @@ import {styles} from '../global/mystyle'
 const Tasks = ({ navigation }) => {
   const dispatch = useDispatch(); //Redux Dispatch
   const {accepted, pending, unassigned} = useSelector(state => state.data); //Redux State
+  const { tokens } = useSelector(state=> state.data1)
 
-const todashboard = ()=>{
-    navigation.navigate("Dashboard",{state:1})
-}
+    const todashboard = ()=>{
+        navigation.navigate("Dashboard",{state:1})
+    }
 
   useEffect(()=>{
-      dispatch(loadUnassigned());
-      dispatch(loadAccepted());
-      dispatch(loadPending());
-
+    dispatch(loadUnassigned(tokens));
+    dispatch(loadAccepted(tokens));
+    dispatch(loadPending(tokens));
   }, [dispatch])
     
   return (
