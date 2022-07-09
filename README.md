@@ -9,10 +9,12 @@ This the Merak App for exmployees where employees can login, record their attend
 <p align="center"> Great Field Work Takes Great Team Work</p>
 </p>
 
-<p align="center"> Scan Merak App
+<hr>
+<p align="center"> 
+<p align="center">Scan Merak App </p>
   <img src="https://github.com/prabalbhandari04/merak-app/blob/main/assets/merakapp.svg">
  </p>
- 
+ <hr>
 ## Features:
 
 The Employee will be redirected to the login page where the user has to pass in credentials.After authentication user will be redirected to dashboard where following features will be available- 
