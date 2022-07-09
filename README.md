@@ -27,7 +27,7 @@ The Employee will be redirected to the login page where the user has to pass in 
 - [x] Attendance: A screen to punch in attendance. 
 - [x] Dashboard : A central dashboard screen with all the features.
 
-##App Deployed here
+## App Deployed here
 
 ```sh
 https://expo.dev/@prabalb/merakapp?serviceType=classic&distribution=expo-go
