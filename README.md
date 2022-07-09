@@ -1,7 +1,7 @@
 # Merak App
 This the Merak App for exmployees where employees can login, record their attendance,submit and accept their tasks,and post their expenses.
 <p align="center">
-<img src="https://github.com/prabalbhandari04/merak-client/blob/main/public/Logo2x.png">
+<img src="https://github.com/prabalbhandari04/merak-client/blob/main/public/assets/Logo2x.png">
 <h1 align="center">
    Merak
   </h1>
