@@ -35,13 +35,6 @@ const Dashboard = ({ navigation })=>{
         navigation.navigate("Expense",{state:1})
     }
 
-    const reload = ()=>{
-        dispatch(loadUnassigned());
-        dispatch(loadAccepted());
-        dispatch(loadPending());
-    }
-
-
     const tologin = async()=>{
         const value = await AsyncStorage.removeItem('access_token')
         navigation.dispatch(
@@ -59,8 +52,6 @@ const Dashboard = ({ navigation })=>{
             <Text style={styles.text_title}>
                   Dashboard
             </Text>
-
-            <Button title='reload' onPress={reload}></Button>
 
             <View>
                 <View style={styles.dash_info}>
