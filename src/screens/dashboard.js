@@ -31,6 +31,10 @@ const Dashboard = ({ navigation })=>{
         navigation.navigate("Profile",{state:1})
     }
 
+    const toexpense = async()=>{
+        navigation.navigate("Expense",{state:1})
+    }
+
     const reload = ()=>{
         dispatch(loadUnassigned());
         dispatch(loadAccepted());
@@ -77,6 +81,8 @@ const Dashboard = ({ navigation })=>{
             <Button title='Tasks' onPress={totasks} ></Button>
             <View style= {{height: 5}}></View>
             <Button title='Attendance' onPress={toattendance} ></Button>
+            <View style= {{height: 5}}></View>
+            <Button title='Expense' onPress={toexpense} ></Button>
             <View style= {{height: 5}}></View>
             <Button title='Logout' onPress={tologin} ></Button>
             <View style= {{height: 5}}></View>

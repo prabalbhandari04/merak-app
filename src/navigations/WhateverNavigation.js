@@ -7,7 +7,8 @@ import Task from '../screens/tasks';
 import Dashboard from '../screens/dashboard'
 import Attendance from '../screens/attendance'
 import Profile from '../screens/profile'
-
+import Expense from '../screens/expense';
+import ExpenseInput from '../screens/expenseInput';
 const Stack = createNativeStackNavigator();
 
 const MyStack = () => {
@@ -40,6 +41,16 @@ const MyStack = () => {
         <Stack.Screen 
             name="Profile" 
             component={Profile} 
+            options ={{headerShown:false}}
+        />
+        <Stack.Screen
+            name="Expense"
+            component={Expense}
+            options ={{headerShown:false}}
+        />
+        <Stack.Screen
+            name="ExpenseInput"
+            component={ExpenseInput}
             options ={{headerShown:false}}
         />
       </Stack.Navigator>
