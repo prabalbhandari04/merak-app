@@ -10,8 +10,10 @@ This the Merak App for exmployees where employees can login, record their attend
 </p>
 
 <hr>
-<p align="center"> 
+
 <p align="center">Scan Merak App </p>
+
+<p align="center"> 
   <img src="https://github.com/prabalbhandari04/merak-app/blob/main/assets/merakapp.svg">
  </p>
  <hr>
